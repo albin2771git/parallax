@@ -54,6 +54,7 @@ class _AnimatedDrawerState extends State<AnimatedDrawer>with SingleTickerProvide
             Transform(
               transform: Matrix4.identity()
               ..translate(slide)
+              ..rotateY(slide)
               ..scale(scale),
               alignment: Alignment.center,
               child: Container(
@@ -65,7 +66,9 @@ class _AnimatedDrawerState extends State<AnimatedDrawer>with SingleTickerProvide
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children:  [
+                         IconButton(onPressed:()=>toggleAnimation(), icon: AnimatedIcon(icon: AnimatedIcons.menu_close, progress: animationController,)),
                          IconButton(onPressed:()=>toggleAnimation(), icon: AnimatedIcon(icon: AnimatedIcons.menu_close, progress: animationController,))
                         ],
                       ),
